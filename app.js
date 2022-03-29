@@ -2,19 +2,24 @@
 //express 
 const { urlencoded } = require ( 'express')
 const express = require('express');
-require('dotenv').config()
 const app = express();
+const _env = require('dotenv').config()
+
+if(!!_env.error) {
+  console.log('Error: No .env file')
+  process.abort()
+}
 
 // install controllers
 const voyagerController = require("./controllers/voyagerController") 
-// this is middlewear 
+// this is middleware 
 const morgan = require("morgan");
 const cors = require("cors");
 // install mongoose 
 const mongoose = require("mongoose");
 const methodOverride = require('method-override');
 const db = mongoose.connection;
-const mongoURI = "mongodb+srv://kathleendiep:coco@cluster0.jrknk.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const mongoURI = process.env.MONGO_URI
 // Connect to Mongo 
 mongoose.connect( mongoURI );
 mongoose.connect(mongoURI, () => {
@@ -43,8 +48,7 @@ app.use(express.json());
 
 app.use('/voyagers', voyagerController)
 
-
 const port = process.env.PORT || 3001
-app.listen(port, ()=>{
+app.listen(port, () => {
     console.log('app running')
 })
