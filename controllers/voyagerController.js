@@ -19,7 +19,6 @@ router.get('/', async (req,res)=>{
             data: err.message
         })
     }
-
 })
 // CREATE: post
 router.post('/', async (req,res)=>{
