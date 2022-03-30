@@ -7,7 +7,7 @@ const router = express.Router();
 // test this in thunderclient - get  localhost:3000/voyagers
 router.get('/', async (req,res)=>{
     try{
-        // assign to variable items
+        // assign to variable voyagers
         const voyagers = await Voyager.find() 
         res.send({
             status: true,

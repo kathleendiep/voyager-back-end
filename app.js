@@ -4,6 +4,10 @@ const { urlencoded } = require ( 'express')
 const express = require('express');
 const app = express();
 const _env = require('dotenv').config()
+// this is middleware 
+const cors = require("cors");
+app.use(cors())
+const morgan = require("morgan");
 
 if(!!_env.error) {
   console.log('Error: No .env file')
@@ -12,9 +16,7 @@ if(!!_env.error) {
 
 // install controllers
 const voyagerController = require("./controllers/voyagerController") 
-// this is middleware 
-const morgan = require("morgan");
-const cors = require("cors");
+
 // install mongoose 
 const mongoose = require("mongoose");
 const methodOverride = require('method-override');
@@ -33,11 +35,9 @@ db.on('disconnected', () => console.log('mongo disconnected'));
 db.on( 'open' , ()=>{
   console.log('Connection made!');
 });
-// REQUIRE MODEL
-const Voyager =require("./models/voyager")
+
 // use 
 // this is middle wear 
-app.use(cors())
 app.use(morgan('short'))
 
 app.use(express.static("public"))
@@ -47,8 +47,10 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
 app.use('/voyagers', voyagerController)
-
+// REQUIRE MODEL
+const Voyager =require("./models/voyager")
 const port = process.env.PORT || 3001
 app.listen(port, () => {
     console.log('app running')
 })
+
