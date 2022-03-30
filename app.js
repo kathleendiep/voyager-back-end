@@ -54,3 +54,5 @@ app.listen(PORT, () => {
     console.log('app running')
 })
 
+// for testing
+module.exports = app 
