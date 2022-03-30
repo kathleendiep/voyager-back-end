@@ -49,8 +49,8 @@ app.use(express.json());
 app.use('/voyagers', voyagerController)
 // REQUIRE MODEL
 const Voyager =require("./models/voyager")
-const port = process.env.PORT || 3001
-app.listen(port, () => {
+const PORT = process.env.PORT || 3001
+app.listen(PORT, () => {
     console.log('app running')
 })
 
