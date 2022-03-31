@@ -45,7 +45,7 @@ app.use(methodOverride('_method'))
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
-
+// then see if backend is working https://voyager-back-end.herokuapp.com/voyagers
 app.use('/voyagers', voyagerController)
 // REQUIRE MODEL
 const Voyager =require("./models/voyager")

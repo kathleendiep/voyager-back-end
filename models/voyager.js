@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const voyagerSchema = new Schema({
     name: {type: String, required: true},
-    location: {type: String, required: true},
+    city: {type: String, required: true},
+    state: {type: String, required: true},
     address: {type: String, required: false},
     category: {type: String, required: true},
     img:[{type: String, required: false}],
