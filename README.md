@@ -1,15 +1,15 @@
-#VOYAGER - a place to plan your future itinery while getting ideas! 
+# VOYAGER - a place to plan your future itinery while getting ideas! 
 
 https://voyager-back-end.herokuapp.com/voyagers
-#TECHNOLOGIES USED:
+## TECHNOLOGIES USED:
 - full-stack application, using MERN stack: Node.js, Mongoose, Express and React.
 
-HOW TO USE: 
+## HOW TO USE: 
 - Be able to share location based on city, category, description 
 - Search: be able to search by city and find out ideas for your next Voyage!
 
 
-UNSOLVED:
+### UNSOLVED:
 - Upload pic
 - Userlogin 
     - With google
